@@ -67,7 +67,8 @@ class Game2048(Frame):
         self.matrix = Logics.start_game()   #Returns a 2d Matrix with all values 0. Using this we will reflect on UI
         Logics.add_new_2(self.matrix)
         Logics.add_new_2(self.matrix)
-         
+
+    
 
 
 
