@@ -1,9 +1,12 @@
-from tkinter import Frame, Label, CENTER
+from tkinter import *
 
 import Logics
 import constants as c
 
+
+
 class Game2048(Frame):  
+    
     '''
     Frame is the Superclass
     It works like a container, which is responsible 
@@ -12,6 +15,11 @@ class Game2048(Frame):
     
     def __init__(self):  # Constructor
         Frame.__init__(self)
+
+        photo = PhotoImage(file = "Img\GameIcon.png")
+        self.master.iconphoto(False, photo)
+        
+
         self.grid()   #Tkinter has grid manager, which allows to create grid
         self.master.title('2048')
         self.master.bind("<Key>", self.key_down) #Bind the frame with the key

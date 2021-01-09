@@ -627,11 +627,11 @@
    'c:\\users\\abhra\\anaconda3\\lib\\site-packages\\win32\\lib\\pywintypes.py',
    'PYMODULE'),
   ('imp', 'c:\\users\\abhra\\anaconda3\\lib\\imp.py', 'PYMODULE'),
-  ('stringprep', 'c:\\users\\abhra\\anaconda3\\lib\\stringprep.py', 'PYMODULE'),
-  ('_py_abc', 'c:\\users\\abhra\\anaconda3\\lib\\_py_abc.py', 'PYMODULE'),
   ('tracemalloc',
    'c:\\users\\abhra\\anaconda3\\lib\\tracemalloc.py',
    'PYMODULE'),
+  ('stringprep', 'c:\\users\\abhra\\anaconda3\\lib\\stringprep.py', 'PYMODULE'),
+  ('_py_abc', 'c:\\users\\abhra\\anaconda3\\lib\\_py_abc.py', 'PYMODULE'),
   ('constants',
    'D:\\Documents\\Python Learning Plus\\PROGRAMS\\2048 Game Project\\2048 '
    'Game\\constants.py',
