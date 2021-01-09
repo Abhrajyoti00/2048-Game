@@ -68,7 +68,18 @@ class Game2048(Frame):
         Logics.add_new_2(self.matrix)
         Logics.add_new_2(self.matrix)
 
-    
+    def update_grid_cells(self):
+        for i in range(c.GRID_LEN):
+            for j in range(c.GRID_LEN):
+                new_number = self.matrix[i][j]  #Storing the current value of matrix at (i,j) in new_number
+                if new_number == 0: #Empty so no need to update the UI Text
+                    self.grid_cells[i][j].configure(text = "", bg = c.BACKGROUND_COLOR_CELL_EMPTY)  #Query or set the default value of the specified option(s) in style.
+                else:
+                    self.grid_cells[i][j].configure(text = str(new_number), bg = c.BACKGROUND_COLOR_DICT[new_number], c.CELL_COLOR_DICT[new_number])
+
+        self.update_idletasks()   # It is in the frame library. It will wait until all the color changes.
+
+
 
 
 
