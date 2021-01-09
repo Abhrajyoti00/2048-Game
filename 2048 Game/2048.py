@@ -75,9 +75,27 @@ class Game2048(Frame):
                 if new_number == 0: #Empty so no need to update the UI Text
                     self.grid_cells[i][j].configure(text = "", bg = c.BACKGROUND_COLOR_CELL_EMPTY)  #Query or set the default value of the specified option(s) in style.
                 else:
-                    self.grid_cells[i][j].configure(text = str(new_number), bg = c.BACKGROUND_COLOR_DICT[new_number], c.CELL_COLOR_DICT[new_number])
+                    self.grid_cells[i][j].configure(text = str(new_number), bg = c.BACKGROUND_COLOR_DICT[new_number], fg = c.CELL_COLOR_DICT[new_number])
 
         self.update_idletasks()   # It is in the frame library. It will wait until all the color changes.
+
+    # What happens when we Press a Key?
+
+    def key_down(self, event):  #Here event is what key we have pressed
+        key = repr(event.char)  #The repr() function returns a printable representation of the given object. The syntax of repr() is: repr(obj)
+        if key self.commands:
+            self.matrix, changed = self.commands[repr(event.char)](self.matrix)   #Command maps the key, makes the movement in the matrix
+            
+            if changed:
+                Logics.add_new_2(self.matrix)
+                self.update_grid_cells()  #Updating the grid cells
+                changed = False # It should be false by default 
+                if Logics.get_current_state(self.matrix) == 'WON':
+                    self.grid_cells[1][1].configure(text = "YOU", bg = c.BACKGROUND_COLOR_CELL_EMPTY)
+                    self.grid_cells[1][2].configure(text = "WIN!", bg = c.BACKGROUND_COLOR_CELL_EMPTY)
+                if Logics.get_current_state(self.matrix) == 'LOST':
+                    self.grid_cells[1][1].configure(text = "YOU", bg = c.BACKGROUND_COLOR_CELL_EMPTY)
+                    self.grid_cells[1][2].configure(text = "LOSE!", bg = c.BACKGROUND_COLOR_CELL_EMPTY)
 
 
 
