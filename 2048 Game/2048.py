@@ -35,7 +35,7 @@ class Game2048(Frame):
         Now we create another Frame within the frame, with the color and sizes given under the constants.py file
         '''
         
-        background = Frame(background, bg = c.BACKGROUND_COLOR_GAME, width = c.SIZE, height = c.SIZE)
+        background = Frame(self, bg = c.BACKGROUND_COLOR_GAME, width = c.SIZE, height = c.SIZE)
         
         background.grid()   #Visualizing the background as a grid
 
@@ -98,6 +98,7 @@ class Game2048(Frame):
                     self.grid_cells[1][2].configure(text = "LOSE!", bg = c.BACKGROUND_COLOR_CELL_EMPTY)
 
 
+gamegrid = Game2048()
 
 
 
