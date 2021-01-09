@@ -83,7 +83,7 @@ class Game2048(Frame):
 
     def key_down(self, event):  #Here event is what key we have pressed
         key = repr(event.char)  #The repr() function returns a printable representation of the given object. The syntax of repr() is: repr(obj)
-        if key self.commands:
+        if key in self.commands:
             self.matrix, changed = self.commands[repr(event.char)](self.matrix)   #Command maps the key, makes the movement in the matrix
             
             if changed:
