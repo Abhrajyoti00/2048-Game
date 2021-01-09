@@ -158,7 +158,7 @@ def get_current_state(mat):
     for i in range(3):
         for j in range(3):
             if (mat[i][j+1] == mat[i][j] or mat[i+1][j] == mat[i][j]):
-                return 'GAME NOT OVER'
+                return 'GAME NOT OVER!'
     
     #Last Row  
     for j in range(3):
