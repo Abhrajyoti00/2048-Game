@@ -91,11 +91,13 @@ class Game2048(Frame):
                 self.update_grid_cells()  #Updating the grid cells
                 changed = False # It should be false by default 
                 if Logics.get_current_state(self.matrix) == 'WON':
-                    self.grid_cells[1][1].configure(text = "YOU", bg = c.BACKGROUND_COLOR_CELL_EMPTY)
-                    self.grid_cells[1][2].configure(text = "WIN!", bg = c.BACKGROUND_COLOR_CELL_EMPTY)
+                    self.grid_cells[1][1].configure(text = "YOU", bg = c.BACKGROUND_COLOR_DICT["YOU WON"], fg = c.CELL_COLOR_DICT["Result"])
+                    self.grid_cells[1][2].configure(text = "WIN!", bg = c.BACKGROUND_COLOR_DICT["YOU WON"], fg = c.CELL_COLOR_DICT["Result"])
+
                 if Logics.get_current_state(self.matrix) == 'LOST':
-                    self.grid_cells[1][1].configure(text = "YOU", bg = c.BACKGROUND_COLOR_CELL_EMPTY)
-                    self.grid_cells[1][2].configure(text = "LOSE!", bg = c.BACKGROUND_COLOR_CELL_EMPTY)
+                    self.grid_cells[1][1].configure(text = "YOU", bg = c.BACKGROUND_COLOR_DICT["YOU LOST"], fg = c.CELL_COLOR_DICT["Result"])
+                    self.grid_cells[1][2].configure(text = "LOSE!", bg = c.BACKGROUND_COLOR_DICT["YOU LOST"], fg = c.CELL_COLOR_DICT["Result"])
+                    
 
 
 gamegrid = Game2048()
