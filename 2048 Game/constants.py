@@ -29,8 +29,18 @@ FONT = ("Verdana", 40, "bold")
 
 
 
-KEY_UP = "'w'"
-KEY_DOWN = "'s'"
-KEY_LEFT = "'a'"
-KEY_RIGHT = "'d'"
+# KEY_UP = "'w'"
+# KEY_DOWN = "'s'"
+# KEY_LEFT = "'a'"
+# KEY_RIGHT = "'d'"
+
+KEY_UP = 87
+KEY_DOWN = 83
+KEY_LEFT = 65
+KEY_RIGHT = 68
+
+KEY_UP_ALT = 38
+KEY_DOWN_ALT = 40
+KEY_LEFT_ALT = 37
+KEY_RIGHT_ALT = 39
 

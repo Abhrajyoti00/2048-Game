@@ -15,17 +15,20 @@ class Game2048(Frame):
     
     def __init__(self):  # Constructor
         Frame.__init__(self)
-
-        photo = PhotoImage(file = "Img\GameIcon.png")
+        #Path of the Game Logo
+        photo = PhotoImage(file = "D:\\Documents\\Python Learning Plus\\PROGRAMS\\2048 Game Project\\2048 Game\\Img\\GameIcon.png")
         self.master.iconphoto(False, photo)
         
 
         self.grid()   #Tkinter has grid manager, which allows to create grid
         self.master.title('2048')
         self.master.bind("<Key>", self.key_down) #Bind the frame with the key
+        
         self.commands = {c.KEY_UP: Logics.move_up, c.KEY_DOWN: Logics.move_down,
-        c.KEY_LEFT: Logics.move_left, c.KEY_RIGHT: Logics.move_right}
+        c.KEY_LEFT: Logics.move_left, c.KEY_RIGHT: Logics.move_right, c.KEY_UP_ALT: Logics.move_up, c.KEY_DOWN_ALT: Logics.move_down,
+                         c.KEY_LEFT_ALT: Logics.move_left, c.KEY_RIGHT_ALT: Logics.move_right}
 
+        Frame.focus_set(self) #Moves the keyboard focus to the frame
         self.grid_cells = []
         self.init_grid()  #Initializes the Grid by addiing the grid cells
         self.init_matrix() #Initializes the Matrix by adding new 2's in the matrix after starting the game
@@ -90,9 +93,30 @@ class Game2048(Frame):
     # What happens when we Press a Key?
 
     def key_down(self, event):  #Here event is what key we have pressed
-        key = repr(event.char)  #The repr() function returns a printable representation of the given object. The syntax of repr() is: repr(obj)
+
+        '''
+        Keys are assigned using Keycodes defined in constants.py file
+
+        # WASD Keys event in details :-
+
+        <KeyPress event state=Mod1 keysym=d keycode=68 char='d' x=1407 y=-8>
+        <KeyPress event state=Mod1 keysym=s keycode=83 char='s' x=1407 y=-8>
+        <KeyPress event state=Mod1 keysym=w keycode=87 char='w' x=1407 y=-8>
+        <KeyPress event state=Mod1 keysym=a keycode=65 char='a' x=1407 y=-8>
+
+        # Arrow Keys event in details :-
+
+        <KeyPress event state=Mod1|0x40000 keysym=Down keycode=40 x=1407 y=-8>
+        <KeyPress event state=Mod1|0x40000 keysym=Left keycode=37 x=1407 y=-8>
+        <KeyPress event state=Mod1|0x40000 keysym=Up keycode=38 x=1407 y=-8>
+        <KeyPress event state=Mod1|0x40000 keysym=Right keycode=39 x=1407 y=-8>
+
+        '''
+
+        key = event.keycode  # We extract the keycode part (an integer)
+
         if key in self.commands:
-            self.matrix, changed = self.commands[repr(event.char)](self.matrix)   #Command maps the key, makes the movement in the matrix
+            self.matrix, changed = self.commands[event.keycode](self.matrix)   #Command maps the key, makes the movement in the matrix
             
             if changed:
                 Logics.add_new_2(self.matrix)
